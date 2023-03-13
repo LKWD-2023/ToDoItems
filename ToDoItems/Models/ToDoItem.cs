@@ -11,6 +11,6 @@ namespace ToDoItems.Models
         public string CategoryName { get; set; }
         public int CategoryId { get; set; }
 
-        public bool IsOverdue => DueDate < DateTime.Now && !CompletedDate.HasValue; 
+        public bool IsOverdue => DueDate.Date < DateTime.Today && !CompletedDate.HasValue; 
     }
 }
