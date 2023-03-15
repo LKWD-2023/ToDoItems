@@ -15,7 +15,7 @@
             </div>
             <div class="form-group mt-3">
                 <label for="categoryid">Category:</label>
-                <select id="categoryid" class="form-control form-control-lg" name="categoryid">
+                <select id="categoryid" class="form-select" name="categoryid">
                     @foreach (Category category in Model)
                     {
                         <option value="@category.Id">@category.Name</option>
