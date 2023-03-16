@@ -12,7 +12,6 @@
 
             @foreach (ToDoItem item in Model)
             {
-
                 <tr class="@(item.IsOverdue ? "table-danger" : "")">
                     <td>@item.Title</td>
                     <td>@item.CategoryName</td>

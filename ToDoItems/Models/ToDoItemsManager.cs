@@ -99,15 +99,15 @@ namespace ToDoItems.Models
 
         public List<Category> GetCategories()
         {
-            using SqlConnection connection = new SqlConnection(_connectionString);
-            using SqlCommand cmd = connection.CreateCommand();
+            using var connection = new SqlConnection(_connectionString);
+            using var cmd = connection.CreateCommand();
             cmd.CommandText = "SELECT * FROM Categories";
             connection.Open();
-            List<Category> categories = new List<Category>();
+            List<Category> categories = new();
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                categories.Add(new Category
+                categories.Add(new()
                 {
                     Id = (int)reader["Id"],
                     Name = (string)reader["Name"]

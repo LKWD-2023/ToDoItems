@@ -11,6 +11,19 @@ namespace ToDoItems.Controllers
 
         public IActionResult Index()
         {
+
+            //int num = new Random().Next(1, 200);
+            ////ternary operator
+            //string s2 = num % 2 == 0 ? "even" : "odd";
+            //string s = "";
+            //if(num % 2 == 0)
+            //{
+            //    s = "even";
+            //}
+            //else
+            //{
+            //    s = "odd";
+            //}
             ToDoItemsManager mgr = new ToDoItemsManager(_connectionString);
 
             List<ToDoItem> items = mgr.GetIncompletedItems();
@@ -48,6 +61,10 @@ namespace ToDoItems.Controllers
         {
             ToDoItemsManager mgr = new ToDoItemsManager(_connectionString);
             Category category = mgr.GetCategory(id);
+            if(category == null)
+            {
+                return Redirect("/home/categories");
+            }
             return View(category);
         }
 
